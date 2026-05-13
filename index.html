@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Formula Uma Fantasy League</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -17,172 +19,408 @@
 body{
     font-family:'Inter',sans-serif;
     min-height:100vh;
-    color:white;
-    background:url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat fixed;
-    position:relative;
     overflow-x:hidden;
+
+    background:
+    linear-gradient(rgba(5,8,20,0.82),rgba(5,8,20,0.9)),
+    url('https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1920&auto=format&fit=crop');
+
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+
+    color:white;
 }
 
-body::before{
-    content:'';
-    position:fixed;
-    inset:0;
-    background:linear-gradient(
-        180deg,
-        rgba(0,0,0,0.75),
-        rgba(0,0,0,0.82)
-    );
-    z-index:-1;
+/* ===== SCROLLBAR ===== */
+
+::-webkit-scrollbar{
+    width:10px;
 }
+
+::-webkit-scrollbar-thumb{
+    background:#4cc9f0;
+    border-radius:20px;
+}
+
+/* ===== MAIN ===== */
 
 .container{
     width:95%;
-    max-width:1500px;
+    max-width:1600px;
     margin:auto;
-    padding:40px 0 60px;
+    padding:40px 0 80px;
 }
 
-.header{
+/* ===== TOPBAR ===== */
+
+.topbar{
     display:flex;
     justify-content:space-between;
     align-items:center;
     flex-wrap:wrap;
     gap:20px;
-    margin-bottom:35px;
+
+    margin-bottom:40px;
 }
 
-.title{
+.logo h1{
     font-family:'Orbitron',sans-serif;
-}
-
-.title h1{
-    font-size:3rem;
-    font-weight:700;
+    font-size:3.2rem;
+    font-weight:800;
     letter-spacing:2px;
 }
 
-.title span{
+.logo span{
     color:#4cc9f0;
 }
 
-.subtitle{
+.logo p{
     margin-top:8px;
-    opacity:0.8;
+    opacity:0.7;
+    font-size:0.95rem;
 }
 
-.bg-control{
-    background:rgba(255,255,255,0.08);
-    backdrop-filter:blur(10px);
-    border:1px solid rgba(255,255,255,0.15);
-    padding:14px 18px;
-    border-radius:16px;
-}
+/* ===== BUTTON ===== */
 
-.bg-control label{
-    font-size:0.9rem;
-    opacity:0.8;
-}
-
-.bg-control input{
-    margin-top:8px;
-    width:260px;
-    padding:10px;
+.rank-btn{
     border:none;
-    border-radius:10px;
-    outline:none;
+    padding:16px 28px;
+
+    border-radius:18px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #4cc9f0,
+        #4361ee,
+        #7209b7
+    );
+
+    color:white;
+
+    font-size:1rem;
+    font-weight:700;
+    letter-spacing:1px;
+
+    cursor:pointer;
+
+    transition:0.25s ease;
+
+    box-shadow:
+    0 10px 30px rgba(67,97,238,0.4);
 }
 
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:20px;
+.rank-btn:hover{
+    transform:translateY(-4px) scale(1.03);
 }
+
+/* ===== MARKET GRID ===== */
+
+.market-grid{
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(290px,1fr));
+
+    gap:22px;
+}
+
+/* ===== CARD ===== */
 
 .card{
-    background:rgba(255,255,255,0.08);
-    border:1px solid rgba(255,255,255,0.12);
-    border-radius:22px;
-    padding:22px;
-    backdrop-filter:blur(12px);
-    transition:0.25s ease;
     position:relative;
+
     overflow:hidden;
+
+    border-radius:28px;
+
+    padding:24px;
+
+    background:
+    linear-gradient(
+        145deg,
+        rgba(255,255,255,0.10),
+        rgba(255,255,255,0.04)
+    );
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(14px);
+
+    transition:0.3s ease;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    border-color:rgba(76,201,240,0.5);
+
+    box-shadow:
+    0 18px 40px rgba(0,0,0,0.35);
 }
 
 .card::before{
     content:'';
+
     position:absolute;
+
     top:0;
     left:0;
+
     width:100%;
-    height:4px;
-    background:linear-gradient(90deg,#4cc9f0,#4361ee,#7209b7);
+    height:5px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #4cc9f0,
+        #4361ee,
+        #7209b7
+    );
 }
 
-.card:hover{
-    transform:translateY(-6px);
-    border-color:rgba(255,255,255,0.3);
-    box-shadow:0 12px 30px rgba(0,0,0,0.35);
-}
+/* ===== CARD CONTENT ===== */
 
 .uma-name{
-    font-size:1.4rem;
+    font-size:1.5rem;
     font-weight:700;
-    margin-bottom:8px;
 }
 
 .team{
+    margin-top:6px;
+    opacity:0.7;
     font-size:0.95rem;
-    opacity:0.75;
-    margin-bottom:18px;
 }
 
-.value-box{
+.value-area{
+    margin-top:26px;
+
     display:flex;
     justify-content:space-between;
     align-items:end;
 }
 
-.value{
+.price{
     font-family:'Orbitron',sans-serif;
-    font-size:2rem;
+    font-size:2.1rem;
     font-weight:700;
 }
 
 .change{
-    font-weight:700;
-    padding:6px 12px;
+    padding:8px 14px;
     border-radius:999px;
-    font-size:0.9rem;
+
+    font-size:0.92rem;
+    font-weight:700;
 }
 
 .up{
-    background:rgba(0,255,150,0.15);
+    background:rgba(42,245,152,0.14);
     color:#2af598;
 }
 
 .down{
-    background:rgba(255,70,70,0.15);
-    color:#ff5c5c;
+    background:rgba(255,92,92,0.14);
+    color:#ff6b6b;
 }
 
+/* ===== POPUP ===== */
+
+.popup{
+    position:fixed;
+    inset:0;
+
+    background:rgba(0,0,0,0.7);
+
+    backdrop-filter:blur(10px);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    opacity:0;
+    pointer-events:none;
+
+    transition:0.25s;
+
+    z-index:999;
+}
+
+.popup.active{
+    opacity:1;
+    pointer-events:auto;
+}
+
+.popup-box{
+    width:92%;
+    max-width:720px;
+
+    border-radius:32px;
+
+    padding:34px;
+
+    background:
+    linear-gradient(
+        145deg,
+        rgba(20,25,40,0.98),
+        rgba(10,12,22,0.98)
+    );
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    animation:popupShow 0.25s ease;
+}
+
+@keyframes popupShow{
+
+    from{
+        transform:translateY(20px) scale(0.96);
+        opacity:0;
+    }
+
+    to{
+        transform:translateY(0) scale(1);
+        opacity:1;
+    }
+}
+
+.popup-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:28px;
+}
+
+.popup-title{
+    font-family:'Orbitron',sans-serif;
+    font-size:2.2rem;
+    font-weight:800;
+}
+
+.close{
+    width:42px;
+    height:42px;
+
+    border:none;
+    border-radius:50%;
+
+    background:#ff4d6d;
+    color:white;
+
+    font-size:1rem;
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:0.2s;
+}
+
+.close:hover{
+    transform:scale(1.1);
+}
+
+/* ===== PLAYER LIST ===== */
+
+.player-list{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+}
+
+.player{
+    padding:18px 20px;
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,0.06);
+
+    border:1px solid rgba(255,255,255,0.06);
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    transition:0.2s;
+}
+
+.player:hover{
+    transform:translateX(5px);
+
+    background:rgba(255,255,255,0.08);
+}
+
+.player-left{
+    display:flex;
+    align-items:center;
+    gap:16px;
+}
+
+.rank{
+    width:48px;
+    height:48px;
+
+    border-radius:14px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-weight:800;
+
+    background:
+    linear-gradient(
+        135deg,
+        #4cc9f0,
+        #4361ee
+    );
+}
+
+.player-name{
+    font-size:1.05rem;
+    font-weight:700;
+}
+
+.player-team{
+    margin-top:4px;
+    opacity:0.65;
+    font-size:0.85rem;
+}
+
+.points{
+    font-family:'Orbitron',sans-serif;
+    font-weight:700;
+    color:#4cc9f0;
+}
+
+/* ===== FOOTER ===== */
+
 .footer{
-    margin-top:40px;
+    margin-top:50px;
+
     text-align:center;
-    opacity:0.6;
+
+    opacity:0.5;
     font-size:0.9rem;
 }
 
+/* ===== MOBILE ===== */
+
 @media(max-width:700px){
 
-    .title h1{
-        font-size:2rem;
+    .logo h1{
+        font-size:2.1rem;
     }
 
-    .bg-control input{
-        width:100%;
+    .popup-title{
+        font-size:1.6rem;
+    }
+
+    .price{
+        font-size:1.7rem;
     }
 }
+
 </style>
 </head>
 
@@ -190,267 +428,250 @@ body::before{
 
 <div class="container">
 
-    <div class="header">
+    <!-- TOP -->
 
-        <div class="title">
-            <h1>FORMULA <span>UMA</span> Fantasy League</h1>
-            <div class="subtitle">
-                Driver Market Value Board - Season 2026
-            </div>
+    <div class="topbar">
+
+        <div class="logo">
+            <h1>FORMULA <span>UMA</span></h1>
+            <p>Fantasy League Driver Market • Season 2026</p>
         </div>
 
-        <div class="bg-control">
-            <label>Đổi Background (URL ảnh)</label><br>
-            <input type="text" id="bgInput" placeholder="Dán link ảnh background...">
-        </div>
+        <button class="rank-btn" onclick="openPopup()">
+            PLAYER RANKING
+        </button>
 
     </div>
 
-    <div class="grid">
+    <!-- MARKET -->
 
-        <!-- 1 -->
-        <div class="card">
-            <div class="uma-name">Tokai Teio</div>
-            <div class="team">Mercedes AMG</div>
+    <div class="market-grid">
 
-            <div class="value-box">
-                <div class="value">39.5M$</div>
-                <div class="change up">+1.2M$</div>
-            </div>
-        </div>
+        <!-- 22 UMA -->
 
-        <!-- 2 -->
         <div class="card">
             <div class="uma-name">Silence Suzuka</div>
             <div class="team">Red Bull Racing</div>
 
-            <div class="value-box">
-                <div class="value">42.1M$</div>
+            <div class="value-area">
+                <div class="price">42.1M$</div>
                 <div class="change up">+2.3M$</div>
             </div>
         </div>
 
-        <!-- 3 -->
+        <div class="card">
+            <div class="uma-name">Tokai Teio</div>
+            <div class="team">Mercedes AMG</div>
+
+            <div class="value-area">
+                <div class="price">39.5M$</div>
+                <div class="change up">+1.2M$</div>
+            </div>
+        </div>
+
         <div class="card">
             <div class="uma-name">Rice Shower</div>
             <div class="team">Ferrari</div>
 
-            <div class="value-box">
-                <div class="value">31.4M$</div>
+            <div class="value-area">
+                <div class="price">31.4M$</div>
                 <div class="change up">+0.8M$</div>
             </div>
         </div>
 
-        <!-- 4 -->
         <div class="card">
             <div class="uma-name">Mihono Bourbon</div>
             <div class="team">McLaren</div>
 
-            <div class="value-box">
-                <div class="value">29.6M$</div>
+            <div class="value-area">
+                <div class="price">29.6M$</div>
                 <div class="change down">-0.5M$</div>
             </div>
         </div>
 
-        <!-- 5 -->
         <div class="card">
             <div class="uma-name">Special Week</div>
             <div class="team">Aston Martin</div>
 
-            <div class="value-box">
-                <div class="value">35.2M$</div>
+            <div class="value-area">
+                <div class="price">35.2M$</div>
                 <div class="change up">+1.1M$</div>
             </div>
         </div>
 
-        <!-- 6 -->
         <div class="card">
             <div class="uma-name">Mejiro McQueen</div>
             <div class="team">Williams</div>
 
-            <div class="value-box">
-                <div class="value">26.8M$</div>
+            <div class="value-area">
+                <div class="price">26.8M$</div>
                 <div class="change down">-0.2M$</div>
             </div>
         </div>
 
-        <!-- 7 -->
         <div class="card">
             <div class="uma-name">Gold Ship</div>
             <div class="team">Alpine</div>
 
-            <div class="value-box">
-                <div class="value">24.5M$</div>
+            <div class="value-area">
+                <div class="price">24.5M$</div>
                 <div class="change up">+0.7M$</div>
             </div>
         </div>
 
-        <!-- 8 -->
         <div class="card">
             <div class="uma-name">Vodka</div>
             <div class="team">Haas</div>
 
-            <div class="value-box">
-                <div class="value">21.0M$</div>
+            <div class="value-area">
+                <div class="price">21.0M$</div>
                 <div class="change up">+0.3M$</div>
             </div>
         </div>
 
-        <!-- 9 -->
         <div class="card">
             <div class="uma-name">Daiwa Scarlet</div>
             <div class="team">Ferrari</div>
 
-            <div class="value-box">
-                <div class="value">33.8M$</div>
+            <div class="value-area">
+                <div class="price">33.8M$</div>
                 <div class="change up">+1.4M$</div>
             </div>
         </div>
 
-        <!-- 10 -->
         <div class="card">
             <div class="uma-name">Symboli Rudolf</div>
             <div class="team">Mercedes AMG</div>
 
-            <div class="value-box">
-                <div class="value">37.0M$</div>
+            <div class="value-area">
+                <div class="price">37.0M$</div>
                 <div class="change down">-0.4M$</div>
             </div>
         </div>
 
-        <!-- 11 -->
         <div class="card">
             <div class="uma-name">Air Groove</div>
             <div class="team">Red Bull Racing</div>
 
-            <div class="value-box">
-                <div class="value">30.7M$</div>
+            <div class="value-area">
+                <div class="price">30.7M$</div>
                 <div class="change up">+0.5M$</div>
             </div>
         </div>
 
-        <!-- 12 -->
         <div class="card">
             <div class="uma-name">Narita Brian</div>
             <div class="team">McLaren</div>
 
-            <div class="value-box">
-                <div class="value">34.2M$</div>
+            <div class="value-area">
+                <div class="price">34.2M$</div>
                 <div class="change up">+1.9M$</div>
             </div>
         </div>
 
-        <!-- 13 -->
         <div class="card">
             <div class="uma-name">Agnes Tachyon</div>
             <div class="team">RB Honda</div>
 
-            <div class="value-box">
-                <div class="value">22.4M$</div>
+            <div class="value-area">
+                <div class="price">22.4M$</div>
                 <div class="change down">-0.3M$</div>
             </div>
         </div>
 
-        <!-- 14 -->
         <div class="card">
             <div class="uma-name">TM Opera O</div>
             <div class="team">Sauber</div>
 
-            <div class="value-box">
-                <div class="value">25.1M$</div>
+            <div class="value-area">
+                <div class="price">25.1M$</div>
                 <div class="change up">+0.6M$</div>
             </div>
         </div>
 
-        <!-- 15 -->
         <div class="card">
             <div class="uma-name">Biwa Hayahide</div>
             <div class="team">Williams</div>
 
-            <div class="value-box">
-                <div class="value">20.9M$</div>
+            <div class="value-area">
+                <div class="price">20.9M$</div>
                 <div class="change down">-1.0M$</div>
             </div>
         </div>
 
-        <!-- 16 -->
         <div class="card">
             <div class="uma-name">Kitasan Black</div>
             <div class="team">Ferrari</div>
 
-            <div class="value-box">
-                <div class="value">40.0M$</div>
+            <div class="value-area">
+                <div class="price">40.0M$</div>
                 <div class="change up">+2.0M$</div>
             </div>
         </div>
 
-        <!-- 17 -->
         <div class="card">
             <div class="uma-name">Satono Diamond</div>
             <div class="team">Aston Martin</div>
 
-            <div class="value-box">
-                <div class="value">32.5M$</div>
+            <div class="value-area">
+                <div class="price">32.5M$</div>
                 <div class="change up">+1.0M$</div>
             </div>
         </div>
 
-        <!-- 18 -->
         <div class="card">
             <div class="uma-name">Nice Nature</div>
             <div class="team">Alpine</div>
 
-            <div class="value-box">
-                <div class="value">18.7M$</div>
+            <div class="value-area">
+                <div class="price">18.7M$</div>
                 <div class="change down">-0.6M$</div>
             </div>
         </div>
 
-        <!-- 19 -->
         <div class="card">
             <div class="uma-name">Grass Wonder</div>
             <div class="team">RB Honda</div>
 
-            <div class="value-box">
-                <div class="value">23.6M$</div>
+            <div class="value-area">
+                <div class="price">23.6M$</div>
                 <div class="change up">+0.4M$</div>
             </div>
         </div>
 
-        <!-- 20 -->
         <div class="card">
             <div class="uma-name">El Condor Pasa</div>
             <div class="team">Haas</div>
 
-            <div class="value-box">
-                <div class="value">27.3M$</div>
+            <div class="value-area">
+                <div class="price">27.3M$</div>
                 <div class="change up">+0.9M$</div>
             </div>
         </div>
 
-        <!-- 21 -->
         <div class="card">
             <div class="uma-name">Fine Motion</div>
             <div class="team">Sauber</div>
 
-            <div class="value-box">
-                <div class="value">19.5M$</div>
+            <div class="value-area">
+                <div class="price">19.5M$</div>
                 <div class="change down">-0.1M$</div>
             </div>
         </div>
 
-        <!-- 22 -->
         <div class="card">
             <div class="uma-name">Mayano Top Gun</div>
             <div class="team">McLaren</div>
 
-            <div class="value-box">
-                <div class="value">28.8M$</div>
+            <div class="value-area">
+                <div class="price">28.8M$</div>
                 <div class="change up">+1.5M$</div>
             </div>
         </div>
 
     </div>
+
+    <!-- FOOTER -->
 
     <div class="footer">
         Formula Uma Fantasy League © 2026
@@ -458,18 +679,144 @@ body::before{
 
 </div>
 
+<!-- POPUP -->
+
+<div class="popup" id="popup">
+
+    <div class="popup-box">
+
+        <div class="popup-top">
+
+            <div class="popup-title">
+                PLAYER RANKING
+            </div>
+
+            <button class="close" onclick="closePopup()">
+                ✕
+            </button>
+
+        </div>
+
+        <div class="player-list">
+
+            <div class="player">
+
+                <div class="player-left">
+
+                    <div class="rank">1</div>
+
+                    <div>
+                        <div class="player-name">Kuro</div>
+                        <div class="player-team">Red Bull Racing</div>
+                    </div>
+
+                </div>
+
+                <div class="points">452 PTS</div>
+
+            </div>
+
+            <div class="player">
+
+                <div class="player-left">
+
+                    <div class="rank">2</div>
+
+                    <div>
+                        <div class="player-name">Aqua</div>
+                        <div class="player-team">Ferrari</div>
+                    </div>
+
+                </div>
+
+                <div class="points">430 PTS</div>
+
+            </div>
+
+            <div class="player">
+
+                <div class="player-left">
+
+                    <div class="rank">3</div>
+
+                    <div>
+                        <div class="player-name">Shiro</div>
+                        <div class="player-team">Mercedes AMG</div>
+                    </div>
+
+                </div>
+
+                <div class="points">418 PTS</div>
+
+            </div>
+
+            <div class="player">
+
+                <div class="player-left">
+
+                    <div class="rank">4</div>
+
+                    <div>
+                        <div class="player-name">Nova</div>
+                        <div class="player-team">McLaren</div>
+                    </div>
+
+                </div>
+
+                <div class="points">401 PTS</div>
+
+            </div>
+
+            <div class="player">
+
+                <div class="player-left">
+
+                    <div class="rank">5</div>
+
+                    <div>
+                        <div class="player-name">Rin</div>
+                        <div class="player-team">Aston Martin</div>
+                    </div>
+
+                </div>
+
+                <div class="points">389 PTS</div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
 <script>
-const bgInput = document.getElementById("bgInput");
 
-bgInput.addEventListener("change", () => {
+function openPopup(){
 
-    const url = bgInput.value.trim();
+    document
+    .getElementById("popup")
+    .classList.add("active");
+}
 
-    if(url){
-        document.body.style.background =
-        `url('${url}') center/cover no-repeat fixed`;
+function closePopup(){
+
+    document
+    .getElementById("popup")
+    .classList.remove("active");
+}
+
+window.addEventListener("click",(e)=>{
+
+    const popup =
+    document.getElementById("popup");
+
+    if(e.target === popup){
+
+        closePopup();
     }
 });
+
 </script>
 
 </body>
