@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Formula Uma Fantasy League</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -22,8 +21,8 @@ body{
     overflow-x:hidden;
 
     background:
-    linear-gradient(rgba(5,8,20,0.82),rgba(5,8,20,0.9)),
-    url('https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1920&auto=format&fit=crop');
+    linear-gradient(rgba(5,8,20,0.86),rgba(5,8,20,0.92)),
+    url('https://wallpapercave.com/wp/wp15723729.jpg');
 
     background-size:cover;
     background-position:center;
@@ -31,8 +30,6 @@ body{
 
     color:white;
 }
-
-/* ===== SCROLLBAR ===== */
 
 ::-webkit-scrollbar{
     width:10px;
@@ -43,8 +40,6 @@ body{
     border-radius:20px;
 }
 
-/* ===== MAIN ===== */
-
 .container{
     width:95%;
     max-width:1600px;
@@ -52,7 +47,7 @@ body{
     padding:40px 0 80px;
 }
 
-/* ===== TOPBAR ===== */
+/* TOPBAR */
 
 .topbar{
     display:flex;
@@ -66,7 +61,7 @@ body{
 
 .logo h1{
     font-family:'Orbitron',sans-serif;
-    font-size:3.2rem;
+    font-size:3.4rem;
     font-weight:800;
     letter-spacing:2px;
 }
@@ -78,28 +73,27 @@ body{
 .logo p{
     margin-top:8px;
     opacity:0.7;
-    font-size:0.95rem;
 }
 
-/* ===== BUTTON ===== */
+.button-group{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+}
 
-.rank-btn{
+.top-btn{
     border:none;
-    padding:16px 28px;
+
+    padding:15px 22px;
 
     border-radius:18px;
 
     background:
-    linear-gradient(
-        135deg,
-        #4cc9f0,
-        #4361ee,
-        #7209b7
-    );
+    linear-gradient(135deg,#4cc9f0,#4361ee,#7209b7);
 
     color:white;
 
-    font-size:1rem;
+    font-size:0.95rem;
     font-weight:700;
     letter-spacing:1px;
 
@@ -107,15 +101,14 @@ body{
 
     transition:0.25s ease;
 
-    box-shadow:
-    0 10px 30px rgba(67,97,238,0.4);
+    box-shadow:0 10px 30px rgba(67,97,238,0.35);
 }
 
-.rank-btn:hover{
+.top-btn:hover{
     transform:translateY(-4px) scale(1.03);
 }
 
-/* ===== MARKET GRID ===== */
+/* MARKET */
 
 .market-grid{
     display:grid;
@@ -125,8 +118,6 @@ body{
 
     gap:22px;
 }
-
-/* ===== CARD ===== */
 
 .card{
     position:relative;
@@ -153,6 +144,7 @@ body{
 
 .card:hover{
     transform:translateY(-8px);
+
     border-color:rgba(76,201,240,0.5);
 
     box-shadow:
@@ -179,8 +171,6 @@ body{
     );
 }
 
-/* ===== CARD CONTENT ===== */
-
 .uma-name{
     font-size:1.5rem;
     font-weight:700;
@@ -202,7 +192,7 @@ body{
 
 .price{
     font-family:'Orbitron',sans-serif;
-    font-size:2.1rem;
+    font-size:2rem;
     font-weight:700;
 }
 
@@ -224,13 +214,13 @@ body{
     color:#ff6b6b;
 }
 
-/* ===== POPUP ===== */
+/* POPUP */
 
 .popup{
     position:fixed;
     inset:0;
 
-    background:rgba(0,0,0,0.7);
+    background:rgba(0,0,0,0.72);
 
     backdrop-filter:blur(10px);
 
@@ -253,7 +243,7 @@ body{
 
 .popup-box{
     width:92%;
-    max-width:720px;
+    max-width:760px;
 
     border-radius:32px;
 
@@ -269,6 +259,11 @@ body{
     border:1px solid rgba(255,255,255,0.08);
 
     animation:popupShow 0.25s ease;
+
+    max-height:85vh;
+
+    display:flex;
+    flex-direction:column;
 }
 
 @keyframes popupShow{
@@ -294,7 +289,7 @@ body{
 
 .popup-title{
     font-family:'Orbitron',sans-serif;
-    font-size:2.2rem;
+    font-size:2.1rem;
     font-weight:800;
 }
 
@@ -320,12 +315,23 @@ body{
     transform:scale(1.1);
 }
 
-/* ===== PLAYER LIST ===== */
-
-.player-list{
+.list{
     display:flex;
     flex-direction:column;
     gap:16px;
+
+    overflow-y:auto;
+
+    padding-right:8px;
+}
+
+.list::-webkit-scrollbar{
+    width:8px;
+}
+
+.list::-webkit-scrollbar-thumb{
+    background:#4cc9f0;
+    border-radius:20px;
 }
 
 .player{
@@ -393,8 +399,6 @@ body{
     color:#4cc9f0;
 }
 
-/* ===== FOOTER ===== */
-
 .footer{
     margin-top:50px;
 
@@ -404,31 +408,26 @@ body{
     font-size:0.9rem;
 }
 
-/* ===== MOBILE ===== */
-
 @media(max-width:700px){
 
     .logo h1{
-        font-size:2.1rem;
+        font-size:2.2rem;
     }
 
     .popup-title{
-        font-size:1.6rem;
+        font-size:1.5rem;
     }
 
     .price{
-        font-size:1.7rem;
+        font-size:1.6rem;
     }
 }
 
 </style>
 </head>
-
 <body>
 
 <div class="container">
-
-    <!-- TOP -->
 
     <div class="topbar">
 
@@ -437,241 +436,25 @@ body{
             <p>Fantasy League Driver Market • Season 2026</p>
         </div>
 
-        <button class="rank-btn" onclick="openPopup()">
-            PLAYER RANKING
-        </button>
+        <div class="button-group">
 
-    </div>
+            <button class="top-btn" onclick="openPopup('playerPopup')">
+                PLAYER RANKING
+            </button>
 
-    <!-- MARKET -->
+            <button class="top-btn" onclick="openPopup('wdcPopup')">
+                WDC
+            </button>
 
-    <div class="market-grid">
+            <button class="top-btn" onclick="openPopup('wccPopup')">
+                WCC
+            </button>
 
-        <!-- 22 UMA -->
-
-        <div class="card">
-            <div class="uma-name">Silence Suzuka</div>
-            <div class="team">Red Bull Racing</div>
-
-            <div class="value-area">
-                <div class="price">42.1M$</div>
-                <div class="change up">+2.3M$</div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="uma-name">Tokai Teio</div>
-            <div class="team">Mercedes AMG</div>
-
-            <div class="value-area">
-                <div class="price">39.5M$</div>
-                <div class="change up">+1.2M$</div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="uma-name">Rice Shower</div>
-            <div class="team">Ferrari</div>
-
-            <div class="value-area">
-                <div class="price">31.4M$</div>
-                <div class="change up">+0.8M$</div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="uma-name">Mihono Bourbon</div>
-            <div class="team">McLaren</div>
-
-            <div class="value-area">
-                <div class="price">29.6M$</div>
-                <div class="change down">-0.5M$</div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="uma-name">Special Week</div>
-            <div class="team">Aston Martin</div>
-
-            <div class="value-area">
-                <div class="price">35.2M$</div>
-                <div class="change up">+1.1M$</div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="uma-name">Mejiro McQueen</div>
-            <div class="team">Williams</div>
-
-            <div class="value-area">
-                <div class="price">26.8M$</div>
-                <div class="change down">-0.2M$</div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="uma-name">Gold Ship</div>
-            <div class="team">Alpine</div>
-
-            <div class="value-area">
-                <div class="price">24.5M$</div>
-                <div class="change up">+0.7M$</div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="uma-name">Vodka</div>
-            <div class="team">Haas</div>
-
-            <div class="value-area">
-                <div class="price">21.0M$</div>
-                <div class="change up">+0.3M$</div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="uma-name">Daiwa Scarlet</div>
-            <div class="team">Ferrari</div>
-
-            <div class="value-area">
-                <div class="price">33.8M$</div>
-                <div class="change up">+1.4M$</div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="uma-name">Symboli Rudolf</div>
-            <div class="team">Mercedes AMG</div>
-
-            <div class="value-area">
-                <div class="price">37.0M$</div>
-                <div class="change down">-0.4M$</div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="uma-name">Air Groove</div>
-            <div class="team">Red Bull Racing</div>
-
-            <div class="value-area">
-                <div class="price">30.7M$</div>
-                <div class="change up">+0.5M$</div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="uma-name">Narita Brian</div>
-            <div class="team">McLaren</div>
-
-            <div class="value-area">
-                <div class="price">34.2M$</div>
-                <div class="change up">+1.9M$</div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="uma-name">Agnes Tachyon</div>
-            <div class="team">RB Honda</div>
-
-            <div class="value-area">
-                <div class="price">22.4M$</div>
-                <div class="change down">-0.3M$</div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="uma-name">TM Opera O</div>
-            <div class="team">Sauber</div>
-
-            <div class="value-area">
-                <div class="price">25.1M$</div>
-                <div class="change up">+0.6M$</div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="uma-name">Biwa Hayahide</div>
-            <div class="team">Williams</div>
-
-            <div class="value-area">
-                <div class="price">20.9M$</div>
-                <div class="change down">-1.0M$</div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="uma-name">Kitasan Black</div>
-            <div class="team">Ferrari</div>
-
-            <div class="value-area">
-                <div class="price">40.0M$</div>
-                <div class="change up">+2.0M$</div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="uma-name">Satono Diamond</div>
-            <div class="team">Aston Martin</div>
-
-            <div class="value-area">
-                <div class="price">32.5M$</div>
-                <div class="change up">+1.0M$</div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="uma-name">Nice Nature</div>
-            <div class="team">Alpine</div>
-
-            <div class="value-area">
-                <div class="price">18.7M$</div>
-                <div class="change down">-0.6M$</div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="uma-name">Grass Wonder</div>
-            <div class="team">RB Honda</div>
-
-            <div class="value-area">
-                <div class="price">23.6M$</div>
-                <div class="change up">+0.4M$</div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="uma-name">El Condor Pasa</div>
-            <div class="team">Haas</div>
-
-            <div class="value-area">
-                <div class="price">27.3M$</div>
-                <div class="change up">+0.9M$</div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="uma-name">Fine Motion</div>
-            <div class="team">Sauber</div>
-
-            <div class="value-area">
-                <div class="price">19.5M$</div>
-                <div class="change down">-0.1M$</div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="uma-name">Mayano Top Gun</div>
-            <div class="team">McLaren</div>
-
-            <div class="value-area">
-                <div class="price">28.8M$</div>
-                <div class="change up">+1.5M$</div>
-            </div>
         </div>
 
     </div>
 
-    <!-- FOOTER -->
+    <div class="market-grid" id="marketGrid"></div>
 
     <div class="footer">
         Formula Uma Fantasy League © 2026
@@ -679,112 +462,67 @@ body{
 
 </div>
 
-<!-- POPUP -->
+<!-- PLAYER POPUP -->
 
-<div class="popup" id="popup">
+<div class="popup" id="playerPopup">
 
     <div class="popup-box">
 
         <div class="popup-top">
 
-            <div class="popup-title">
-                PLAYER RANKING
-            </div>
+            <div class="popup-title">PLAYER RANKING</div>
 
-            <button class="close" onclick="closePopup()">
+            <button class="close" onclick="closePopup('playerPopup')">
                 ✕
             </button>
 
         </div>
 
-        <div class="player-list">
+        <div class="list" id="playerList"></div>
 
-            <div class="player">
+    </div>
 
-                <div class="player-left">
+</div>
 
-                    <div class="rank">1</div>
+<!-- WDC POPUP -->
 
-                    <div>
-                        <div class="player-name">Kuro</div>
-                        <div class="player-team">Red Bull Racing</div>
-                    </div>
+<div class="popup" id="wdcPopup">
 
-                </div>
+    <div class="popup-box">
 
-                <div class="points">452 PTS</div>
+        <div class="popup-top">
 
-            </div>
+            <div class="popup-title">WDC STANDINGS</div>
 
-            <div class="player">
-
-                <div class="player-left">
-
-                    <div class="rank">2</div>
-
-                    <div>
-                        <div class="player-name">Aqua</div>
-                        <div class="player-team">Ferrari</div>
-                    </div>
-
-                </div>
-
-                <div class="points">430 PTS</div>
-
-            </div>
-
-            <div class="player">
-
-                <div class="player-left">
-
-                    <div class="rank">3</div>
-
-                    <div>
-                        <div class="player-name">Shiro</div>
-                        <div class="player-team">Mercedes AMG</div>
-                    </div>
-
-                </div>
-
-                <div class="points">418 PTS</div>
-
-            </div>
-
-            <div class="player">
-
-                <div class="player-left">
-
-                    <div class="rank">4</div>
-
-                    <div>
-                        <div class="player-name">Nova</div>
-                        <div class="player-team">McLaren</div>
-                    </div>
-
-                </div>
-
-                <div class="points">401 PTS</div>
-
-            </div>
-
-            <div class="player">
-
-                <div class="player-left">
-
-                    <div class="rank">5</div>
-
-                    <div>
-                        <div class="player-name">Rin</div>
-                        <div class="player-team">Aston Martin</div>
-                    </div>
-
-                </div>
-
-                <div class="points">389 PTS</div>
-
-            </div>
+            <button class="close" onclick="closePopup('wdcPopup')">
+                ✕
+            </button>
 
         </div>
+
+        <div class="list" id="wdcList"></div>
+
+    </div>
+
+</div>
+
+<!-- WCC POPUP -->
+
+<div class="popup" id="wccPopup">
+
+    <div class="popup-box">
+
+        <div class="popup-top">
+
+            <div class="popup-title">WCC STANDINGS</div>
+
+            <button class="close" onclick="closePopup('wccPopup')">
+                ✕
+            </button>
+
+        </div>
+
+        <div class="list" id="wccList"></div>
 
     </div>
 
@@ -792,32 +530,316 @@ body{
 
 <script>
 
-function openPopup(){
+/* =========================
+   MARKET DATA
+========================= */
 
-    document
-    .getElementById("popup")
-    .classList.add("active");
-}
+const umas = [
 
-function closePopup(){
+    {name:'Satono Diamond',team:'Williams',value:'30M$',change:'+0M$',up:true},
+    {name:'Kitasan Black',team:'Williams',value:'23.1M$',change:'+0.1M$',up:true},
+    {name:'Rice Shower',team:'Haas',value:'38M$',change:'+8M$',up:true},
+    {name:'Mihono Bourbon',team:'Haas',value:'12.4M$',change:'+1.4M$',up:true},
+    {name:'Special Week',team:'Red Bull Racing',value:'28.2M$',change:'+3.2M$',up:true},
+    {name:'Silence Suzuka',team:'Red Bull Racing',value:'20.6M$',change:'+2.6M$',up:true},
+    {name:'T.M Opera O',team:'VCARB',value:'30.9M$',change:'+2.9M$',up:true},
+    {name:'Meisho Doto',team:'VCARB',value:'9.2M$',change:'-0.8M$',up:false},
+    {name:'Tokai Teio',team:'Mercedes AMG',value:'21.6M$',change:'+2.6$',up:true},
+    {name:'Symboli Rudolf',team:'Mercedes AMG',value:'13.9M$',change:'-1.1M$',up:false},
+    {name:'Wonder Acute',team:'Aston Martin',value:'13.4M$',change:'+0.4M$',up:true},
+    {name:'Aston Machan',team:'Aston Martin',value:'4.8M$',change:'+0.2M$',up:false},
+    {name:'Gold Ship',team:'McLaren',value:'20.2M$',change:'-0.8M$',up:false},
+    {name:'Mejiro Mcqueen',team:'McLaren',value:'8.7M$',change:'-0.3M$',up:false},
+    {name:'Oguri Cap',team:'Alpine',value:'21.2M$',change:'+4.2M$',up:true},
+    {name:'Tamamo Cross',team:'Alpine',value:'7.6M$',change:'+0.6M$',up:true},
+    {name:'Twin Turbo',team:'Audi',value:'11.3M$',change:'-0.7M$',up:false},
+    {name:'Ikuno Dictus',team:'Audi',value:'6.4M$',change:'+1.4M$',up:true},
+    {name:'Smart Falcon',team:'Ferrari',value:'6.7M$',change:'+0.7M$',up:true},
+    {name:'Maruzensky',team:'Ferrari',value:'16.5M$',change:'+1.5M$',up:true},
+    {name:'Almond Eye',team:'Cadillac',value:'5.2M$',change:'-0.8M$',up:false},
+    {name:'Taiki Shuttle',team:'Cadillac',value:'5.9M$',change:'-0.1M$',up:false}
 
-    document
-    .getElementById("popup")
-    .classList.remove("active");
-}
+];
 
-window.addEventListener("click",(e)=>{
+/* =========================
+   PLAYER RANKING DATA
+========================= */
 
-    const popup =
-    document.getElementById("popup");
+const players = [
 
-    if(e.target === popup){
+    {name:'Riko#7737',team:'Rice (C) - Teio - Rudolf - Bourbon - Dictus',points:207},
+    {name:'Riku#9181',team:'Rice (C) - Teio - Rudolf - Acute - Eye',points:181},
+    {name:'MainMemory#3667',team:'Opera O (C) - Rice - Acute - Falcon - Eye',points:150},
+    {name:'Aoi#0001',team:'Spe (C) - Teio - Oguri - Mcqueen - Doto',points:135},
+    {name:'Katsuya#2430',team:'Opera O (C) - Suzuka - Doto - Oguri - Tamamo',points:134},
+    {name:'Yuzakisento#5409',team:'Spe (C) - Suzuka - Tamamo - Machan - Taiki',points:105},
+    {name:'Kamenridertria3#9583',team:'Kita (C) - Gold - Oguri - Mcqueen - Falcon',points:77},
+    {name:'Luuduy2k3#0442',team:'Dia (C) - Kita - Falcon - Mcqueen - Bourbon',points:57},
+    {name:'Akasaka#0002',team:'Kita (C) - Teio - Rudolf - Mcqueen - Doto',points:53},
+    {name:'22nd_2006#8158',team:'Kita (C) - Dia - Turbo - Acute - Eye',points:36}
 
-        closePopup();
-    }
+];
+
+/* =========================
+   WDC DATA
+========================= */
+
+const wdc = [
+
+    {name:'Silence Suzuka',team:'Red Bull Racing',points:182},
+    {name:'Kitasan Black',team:'Ferrari',points:170},
+    {name:'Tokai Teio',team:'Mercedes AMG',points:166},
+    {name:'Special Week',team:'Aston Martin',points:140},
+    {name:'Narita Brian',team:'McLaren',points:131},
+    {name:'Rice Shower',team:'Ferrari',points:118},
+    {name:'Symboli Rudolf',team:'Mercedes AMG',points:102}
+
+];
+
+/* =========================
+   WCC DATA
+========================= */
+
+const wcc = [
+
+    {name:'Ferrari',points:288},
+    {name:'Mercedes AMG',points:268},
+    {name:'Red Bull Racing',points:251},
+    {name:'McLaren',points:224},
+    {name:'Aston Martin',points:187},
+    {name:'Williams',points:112},
+    {name:'Alpine',points:95}
+
+];
+
+/* =========================
+   MARKET RENDER
+========================= */
+
+const marketGrid = document.getElementById('marketGrid');
+
+umas.forEach(uma=>{
+
+    marketGrid.innerHTML += `
+
+    <div class="card">
+
+        <div class="uma-name">${uma.name}</div>
+
+        <div class="team">${uma.team}</div>
+
+        <div class="value-area">
+
+            <div class="price">${uma.value}</div>
+
+            <div class="change ${uma.up ? 'up':'down'}">
+                ${uma.change}
+            </div>
+
+        </div>
+
+    </div>
+
+    `;
+
 });
+
+/* =========================
+   PLAYER RANKING
+========================= */
+
+function renderPlayers(){
+
+    players.sort((a,b)=>b.points-a.points);
+
+    const list = document.getElementById('playerList');
+
+    list.innerHTML = '';
+
+    players.forEach((player,index)=>{
+
+        list.innerHTML += `
+
+        <div class="player">
+
+            <div class="player-left">
+
+                <div class="rank">${index+1}</div>
+
+                <div>
+
+                    <div class="player-name">
+                        ${player.name}
+                    </div>
+
+                    <div class="player-team">
+                        ${player.team}
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="points">
+                ${player.points} PTS
+            </div>
+
+        </div>
+
+        `;
+
+    });
+}
+
+/* =========================
+   WDC
+========================= */
+
+function renderWDC(){
+
+    wdc.sort((a,b)=>b.points-a.points);
+
+    const list = document.getElementById('wdcList');
+
+    list.innerHTML = '';
+
+    wdc.forEach((driver,index)=>{
+
+        list.innerHTML += `
+
+        <div class="player">
+
+            <div class="player-left">
+
+                <div class="rank">${index+1}</div>
+
+                <div>
+
+                    <div class="player-name">
+                        ${driver.name}
+                    </div>
+
+                    <div class="player-team">
+                        ${driver.team}
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="points">
+                ${driver.points} PTS
+            </div>
+
+        </div>
+
+        `;
+
+    });
+}
+
+/* =========================
+   WCC
+========================= */
+
+function renderWCC(){
+
+    wcc.sort((a,b)=>b.points-a.points);
+
+    const list = document.getElementById('wccList');
+
+    list.innerHTML = '';
+
+    wcc.forEach((team,index)=>{
+
+        list.innerHTML += `
+
+        <div class="player">
+
+            <div class="player-left">
+
+                <div class="rank">${index+1}</div>
+
+                <div>
+
+                    <div class="player-name">
+                        ${team.name}
+                    </div>
+
+                    <div class="player-team">
+                        Constructor Team
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="points">
+                ${team.points} PTS
+            </div>
+
+        </div>
+
+        `;
+
+    });
+}
+
+renderPlayers();
+renderWDC();
+renderWCC();
+
+/* =========================
+   POPUP
+========================= */
+
+function openPopup(id){
+
+    document
+    .getElementById(id)
+    .classList.add('active');
+}
+
+function closePopup(id){
+
+    document
+    .getElementById(id)
+    .classList.remove('active');
+}
+
+window.addEventListener('click',(e)=>{
+
+    document.querySelectorAll('.popup').forEach(popup=>{
+
+        if(e.target === popup){
+            popup.classList.remove('active');
+        }
+
+    });
+
+});
+
+/* =========================
+   EXAMPLE AUTO UPDATE
+========================= */
+
+/*
+
+Ví dụ update điểm:
+
+players[0].points += 25;
+renderPlayers();
+
+wdc[1].points += 18;
+renderWDC();
+
+wcc[0].points += 35;
+renderWCC();
+
+*/
 
 </script>
 
 </body>
 </html>
+```
