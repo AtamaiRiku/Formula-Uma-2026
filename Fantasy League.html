@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Formula Uma Fantasy League</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    min-height:100vh;
+    color:white;
+    background:url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat fixed;
+    position:relative;
+    overflow-x:hidden;
+}
+
+body::before{
+    content:'';
+    position:fixed;
+    inset:0;
+    background:linear-gradient(
+        180deg,
+        rgba(0,0,0,0.75),
+        rgba(0,0,0,0.82)
+    );
+    z-index:-1;
+}
+
+.container{
+    width:95%;
+    max-width:1500px;
+    margin:auto;
+    padding:40px 0 60px;
+}
+
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:20px;
+    margin-bottom:35px;
+}
+
+.title{
+    font-family:'Orbitron',sans-serif;
+}
+
+.title h1{
+    font-size:3rem;
+    font-weight:700;
+    letter-spacing:2px;
+}
+
+.title span{
+    color:#4cc9f0;
+}
+
+.subtitle{
+    margin-top:8px;
+    opacity:0.8;
+}
+
+.bg-control{
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,0.15);
+    padding:14px 18px;
+    border-radius:16px;
+}
+
+.bg-control label{
+    font-size:0.9rem;
+    opacity:0.8;
+}
+
+.bg-control input{
+    margin-top:8px;
+    width:260px;
+    padding:10px;
+    border:none;
+    border-radius:10px;
+    outline:none;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.12);
+    border-radius:22px;
+    padding:22px;
+    backdrop-filter:blur(12px);
+    transition:0.25s ease;
+    position:relative;
+    overflow:hidden;
+}
+
+.card::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:4px;
+    background:linear-gradient(90deg,#4cc9f0,#4361ee,#7209b7);
+}
+
+.card:hover{
+    transform:translateY(-6px);
+    border-color:rgba(255,255,255,0.3);
+    box-shadow:0 12px 30px rgba(0,0,0,0.35);
+}
+
+.uma-name{
+    font-size:1.4rem;
+    font-weight:700;
+    margin-bottom:8px;
+}
+
+.team{
+    font-size:0.95rem;
+    opacity:0.75;
+    margin-bottom:18px;
+}
+
+.value-box{
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+}
+
+.value{
+    font-family:'Orbitron',sans-serif;
+    font-size:2rem;
+    font-weight:700;
+}
+
+.change{
+    font-weight:700;
+    padding:6px 12px;
+    border-radius:999px;
+    font-size:0.9rem;
+}
+
+.up{
+    background:rgba(0,255,150,0.15);
+    color:#2af598;
+}
+
+.down{
+    background:rgba(255,70,70,0.15);
+    color:#ff5c5c;
+}
+
+.footer{
+    margin-top:40px;
+    text-align:center;
+    opacity:0.6;
+    font-size:0.9rem;
+}
+
+@media(max-width:700px){
+
+    .title h1{
+        font-size:2rem;
+    }
+
+    .bg-control input{
+        width:100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+
+        <div class="title">
+            <h1>FORMULA <span>UMA</span> Fantasy League</h1>
+            <div class="subtitle">
+                Driver Market Value Board - Season 2026
+            </div>
+        </div>
+
+        <div class="bg-control">
+            <label>Đổi Background (URL ảnh)</label><br>
+            <input type="text" id="bgInput" placeholder="Dán link ảnh background...">
+        </div>
+
+    </div>
+
+    <div class="grid">
+
+        <!-- 1 -->
+        <div class="card">
+            <div class="uma-name">Tokai Teio</div>
+            <div class="team">Mercedes AMG</div>
+
+            <div class="value-box">
+                <div class="value">39.5M$</div>
+                <div class="change up">+1.2M$</div>
+            </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="card">
+            <div class="uma-name">Silence Suzuka</div>
+            <div class="team">Red Bull Racing</div>
+
+            <div class="value-box">
+                <div class="value">42.1M$</div>
+                <div class="change up">+2.3M$</div>
+            </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="card">
+            <div class="uma-name">Rice Shower</div>
+            <div class="team">Ferrari</div>
+
+            <div class="value-box">
+                <div class="value">31.4M$</div>
+                <div class="change up">+0.8M$</div>
+            </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="card">
+            <div class="uma-name">Mihono Bourbon</div>
+            <div class="team">McLaren</div>
+
+            <div class="value-box">
+                <div class="value">29.6M$</div>
+                <div class="change down">-0.5M$</div>
+            </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="card">
+            <div class="uma-name">Special Week</div>
+            <div class="team">Aston Martin</div>
+
+            <div class="value-box">
+                <div class="value">35.2M$</div>
+                <div class="change up">+1.1M$</div>
+            </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="card">
+            <div class="uma-name">Mejiro McQueen</div>
+            <div class="team">Williams</div>
+
+            <div class="value-box">
+                <div class="value">26.8M$</div>
+                <div class="change down">-0.2M$</div>
+            </div>
+        </div>
+
+        <!-- 7 -->
+        <div class="card">
+            <div class="uma-name">Gold Ship</div>
+            <div class="team">Alpine</div>
+
+            <div class="value-box">
+                <div class="value">24.5M$</div>
+                <div class="change up">+0.7M$</div>
+            </div>
+        </div>
+
+        <!-- 8 -->
+        <div class="card">
+            <div class="uma-name">Vodka</div>
+            <div class="team">Haas</div>
+
+            <div class="value-box">
+                <div class="value">21.0M$</div>
+                <div class="change up">+0.3M$</div>
+            </div>
+        </div>
+
+        <!-- 9 -->
+        <div class="card">
+            <div class="uma-name">Daiwa Scarlet</div>
+            <div class="team">Ferrari</div>
+
+            <div class="value-box">
+                <div class="value">33.8M$</div>
+                <div class="change up">+1.4M$</div>
+            </div>
+        </div>
+
+        <!-- 10 -->
+        <div class="card">
+            <div class="uma-name">Symboli Rudolf</div>
+            <div class="team">Mercedes AMG</div>
+
+            <div class="value-box">
+                <div class="value">37.0M$</div>
+                <div class="change down">-0.4M$</div>
+            </div>
+        </div>
+
+        <!-- 11 -->
+        <div class="card">
+            <div class="uma-name">Air Groove</div>
+            <div class="team">Red Bull Racing</div>
+
+            <div class="value-box">
+                <div class="value">30.7M$</div>
+                <div class="change up">+0.5M$</div>
+            </div>
+        </div>
+
+        <!-- 12 -->
+        <div class="card">
+            <div class="uma-name">Narita Brian</div>
+            <div class="team">McLaren</div>
+
+            <div class="value-box">
+                <div class="value">34.2M$</div>
+                <div class="change up">+1.9M$</div>
+            </div>
+        </div>
+
+        <!-- 13 -->
+        <div class="card">
+            <div class="uma-name">Agnes Tachyon</div>
+            <div class="team">RB Honda</div>
+
+            <div class="value-box">
+                <div class="value">22.4M$</div>
+                <div class="change down">-0.3M$</div>
+            </div>
+        </div>
+
+        <!-- 14 -->
+        <div class="card">
+            <div class="uma-name">TM Opera O</div>
+            <div class="team">Sauber</div>
+
+            <div class="value-box">
+                <div class="value">25.1M$</div>
+                <div class="change up">+0.6M$</div>
+            </div>
+        </div>
+
+        <!-- 15 -->
+        <div class="card">
+            <div class="uma-name">Biwa Hayahide</div>
+            <div class="team">Williams</div>
+
+            <div class="value-box">
+                <div class="value">20.9M$</div>
+                <div class="change down">-1.0M$</div>
+            </div>
+        </div>
+
+        <!-- 16 -->
+        <div class="card">
+            <div class="uma-name">Kitasan Black</div>
+            <div class="team">Ferrari</div>
+
+            <div class="value-box">
+                <div class="value">40.0M$</div>
+                <div class="change up">+2.0M$</div>
+            </div>
+        </div>
+
+        <!-- 17 -->
+        <div class="card">
+            <div class="uma-name">Satono Diamond</div>
+            <div class="team">Aston Martin</div>
+
+            <div class="value-box">
+                <div class="value">32.5M$</div>
+                <div class="change up">+1.0M$</div>
+            </div>
+        </div>
+
+        <!-- 18 -->
+        <div class="card">
+            <div class="uma-name">Nice Nature</div>
+            <div class="team">Alpine</div>
+
+            <div class="value-box">
+                <div class="value">18.7M$</div>
+                <div class="change down">-0.6M$</div>
+            </div>
+        </div>
+
+        <!-- 19 -->
+        <div class="card">
+            <div class="uma-name">Grass Wonder</div>
+            <div class="team">RB Honda</div>
+
+            <div class="value-box">
+                <div class="value">23.6M$</div>
+                <div class="change up">+0.4M$</div>
+            </div>
+        </div>
+
+        <!-- 20 -->
+        <div class="card">
+            <div class="uma-name">El Condor Pasa</div>
+            <div class="team">Haas</div>
+
+            <div class="value-box">
+                <div class="value">27.3M$</div>
+                <div class="change up">+0.9M$</div>
+            </div>
+        </div>
+
+        <!-- 21 -->
+        <div class="card">
+            <div class="uma-name">Fine Motion</div>
+            <div class="team">Sauber</div>
+
+            <div class="value-box">
+                <div class="value">19.5M$</div>
+                <div class="change down">-0.1M$</div>
+            </div>
+        </div>
+
+        <!-- 22 -->
+        <div class="card">
+            <div class="uma-name">Mayano Top Gun</div>
+            <div class="team">McLaren</div>
+
+            <div class="value-box">
+                <div class="value">28.8M$</div>
+                <div class="change up">+1.5M$</div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        Formula Uma Fantasy League © 2026
+    </div>
+
+</div>
+
+<script>
+const bgInput = document.getElementById("bgInput");
+
+bgInput.addEventListener("change", () => {
+
+    const url = bgInput.value.trim();
+
+    if(url){
+        document.body.style.background =
+        `url('${url}') center/cover no-repeat fixed`;
+    }
+});
+</script>
+
+</body>
+</html>
